@@ -33,7 +33,6 @@ namespace tpmodul6_103022300121
             Contract.EnsuresOnThrow<OverflowException>(this.playCount >= 0);
 
             int oldPlayCount = this.playCount;
-            Contract.Ensures(this.playCount >= oldPlayCount);
 
             try
             {
@@ -46,6 +45,8 @@ namespace tpmodul6_103022300121
             {
                 Console.WriteLine("Terjadi overflow saat menambah play count: " + e.Message);
             }
+
+            Contract.Ensures(this.playCount >= oldPlayCount);
         }
 
 
